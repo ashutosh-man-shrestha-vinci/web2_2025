@@ -1,51 +1,38 @@
+import { Cinema } from "./components/Cinema";
+import { PageTitle } from "./components/PageTitle";
+
 const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
 
   const cinema1Name = "UGC DeBrouckère";
-  const cinema1Movie1Title = "Film 1 - DeBrouckère";
-  const cinema1Movie1Director = "Director A";
-  const cinema1Movie2Title = "Film 2 - DeBrouckère";
-  const cinema1Movie2Director = "Director B";
+
+  const movie1 = {
+    title: "HAIKYU-THE DUMPSTER BATTLE",
+    director: "Susumu Mitsunaka",
+  };
+  const movie2 = {
+    title: "GOODBYE JULIA ",
+    director: "Mohamed Kordofani",
+  };
 
   const cinema2Name = "UGC Toison d'Or";
-  const cinema2Movie1Title = "Film 1 - Toison d'Or";
-  const cinema2Movie1Director = "Director C";
-  const cinema2Movie2Title = "Film 2 - Toison d'Or";
-  const cinema2Movie2Director = "Director D";
+  const movie3 = {
+    title: "THE WATCHERS",
+    director: "Ishana Night Shyamalan",
+  };
+  const movie4 = {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
+  };
 
   return (
     <div>
-      <h1>{pageTitle}</h1>
+      <PageTitle title={pageTitle} />
 
-      <div>
-        <h2>{cinema1Name}</h2>
-        <ul>
-          <li>
-            <strong>{cinema1Movie1Title}</strong> - Réalisateur :{" "}
-            {cinema1Movie1Director}
-          </li>
-          <li>
-            <strong>{cinema1Movie2Title}</strong> - Réalisateur :{" "}
-            {cinema1Movie2Director}
-          </li>
-        </ul>
-      </div>
+      <Cinema name={cinema1Name} movie1={movie1} movie2={movie2} />
 
-      <div>
-        <h2>{cinema2Name}</h2>
-        <ul>
-          <li>
-            <strong>{cinema2Movie1Title}</strong> - Réalisateur :{" "}
-            {cinema2Movie1Director}
-          </li>
-          <li>
-            <strong>{cinema2Movie2Title}</strong> - Réalisateur :{" "}
-            {cinema2Movie2Director}
-          </li>
-        </ul>
-      </div>
+      <Cinema name={cinema2Name} movie1={movie3} movie2={movie4} />
     </div>
   );
 };
-
 export default App;
