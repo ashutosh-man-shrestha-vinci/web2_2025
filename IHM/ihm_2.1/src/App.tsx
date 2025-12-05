@@ -1,4 +1,6 @@
 import { Cinema } from "./components/Cinema/index";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { PageTitle } from "./components/PageTitle/index";
 
 const App = () => {
@@ -49,12 +51,22 @@ const moviesCinema2 = [
   
   return (
     <div>
+       <Header logoUrl="https://images.unsplash.com/photo-1512427691650-1f433aee35d4">
+        🍿 Bienvenue dans l'app Cinéma !
+      </Header>
+      
       <PageTitle title={pageTitle} />
 
       <Cinema name={cinema1Name} movies= {moviesCinema1} />
 
       <Cinema name={cinema2Name} movies={moviesCinema2} />
+       <Footer logoUrl="https://images.unsplash.com/photo-1512427691650-1f433aee35d4">
+        📽️ Merci de visiter notre app Cinéma !
+      </Footer>   
+   
     </div>
+
+   
   );
 };
 
