@@ -18,7 +18,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Counter title="Counter Title" message="You are a master in the art of clicking !" />
+        <Counter title="Counter Title" message="You are a master in the art of clicking !" message2='Please click on me' />
         
       </div>
       <p className="read-the-docs">
