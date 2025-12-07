@@ -1,16 +1,8 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Counter } from './components/counter'
 
-
- const Clickcounter = () => {
-   const [count, setCount] = useState(0)
-
-   return(  <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button> )
- }
 function App() {
   
 
@@ -26,7 +18,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Clickcounter />
+        <Counter title="Counter Title" message="You are a master in the art of clicking !" />
         
       </div>
       <p className="read-the-docs">
