@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./App.css";
 
 import { Movies } from "./Components/Movies.tsx/index.tsx";
 import AddMovie from "./Components/Movies.tsx/AddMovie";
 import type { Movie, NewMovie } from "./type";
+import { Box } from "@mui/material";
 
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -14,10 +14,10 @@ function App() {
   };
 
   return (
-    <div>
+   <Box sx={{ p: 4 }}>
       <Movies title="My favorite movies" movies={movies} />
       <AddMovie addMovie={addMovie} />
-    </div>
+      </Box>
   );
 }
 
