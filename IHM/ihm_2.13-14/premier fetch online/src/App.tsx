@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import './App.css'
 
 type Joke = {
@@ -11,11 +10,11 @@ type Joke = {
 };
 
 function App() {
-const [joke, setJoke] = useState<Joke>()
+  const [joke, setJoke] = useState<Joke>()
 
-
- useEffect(() => {
-    fetch("https://v2.jokeapi.dev/joke/Any")
+  useEffect(() => {
+    
+    const interval = setInterval(() => { fetch("https://v2.jokeapi.dev/joke/Any")
       .then((response) => {
         if (!response.ok)
           throw new Error(
@@ -29,15 +28,22 @@ const [joke, setJoke] = useState<Joke>()
       .catch((err) => {
         console.error("HomePage::error: ", err);
       });
+    }, 10000);
+      return () => clearInterval(interval);
+
+
   }, []);
 
   return (
-    <>
-     <div>Catégorie : {joke?.category}</div>
-      <div>Type : {joke?.type}</div>
-      <div>{joke?.joke || joke?.setup}</div>
-       
-    </>
+    <div className="joke-container">
+      <h1 className="joke-title">Joke of the Moment 🤡</h1>
+      <div className="joke-card">
+        <p className="joke-category">Category: {joke?.category}</p>
+        <p className="joke-type">Type: {joke?.type}</p>
+        <p className="joke-text">{joke?.joke || joke?.setup}</p>
+        {joke?.delivery && <p className="joke-delivery">{joke.delivery}</p>}
+      </div>
+    </div>
   )
 }
 
