@@ -10,23 +10,29 @@ type Dog = {
 function RandomDog() {
 const [dog, setDog] = useState<Dog>()
 
+useEffect(() => {
+    fetchdog();
+    const interval = setInterval(() => { fetchdog(); }, 5000);
+      return () => clearInterval(interval);
+  }, [5000]);
 
- useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/image/random")
-      .then((response) => {
+  
+  
+  const fetchdog = async () => {
+
+    try {
+      const response = await fetch("https://dog.ceo/api/breeds/image/random");      
+   
         if (!response.ok)
           throw new Error(
             `fetch error : ${response.status} : ${response.statusText}`
           );
-        return response.json();
-      })
-      .then((dog) => {
-        setDog(dog);
-      })
-      .catch((err) => {
-        console.error("HomePage::error: ", err);
-      });
-  }, []);
+          const dog = await response.json();
+          setDog(dog);
+    } catch (err) {
+      console.error("HomePage::error: ", err);
+    }
+    };
 
   return (
     <>
